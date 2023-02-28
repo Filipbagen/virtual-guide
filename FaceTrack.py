@@ -7,6 +7,8 @@ video_capture = cv2.VideoCapture(0)
  # Boolean for face in screen or not 
 face = False
 
+x = ""
+
 # Face tracking values 
 faceCoordinatesX = []
 faceCoordinatesY = []
@@ -39,6 +41,7 @@ while True:
         faceCoordinatesW.append(w)
         faceCoordinatesH.append(h)
         print("True")
+        print(x)
 
     # Display helping text and boolean attribute 
     font = cv2.FONT_HERSHEY_SIMPLEX
