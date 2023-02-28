@@ -1,5 +1,7 @@
 # virtual-guide Image analysis
 
-
 Face tracking: 
-Download opencv-python
+
+    Assets: 
+        Download opencv-python
+        https://realpython.com/face-detection-in-python-using-a-webcam/

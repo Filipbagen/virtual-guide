@@ -1,12 +1,13 @@
 import cv2
 import sys
 
-faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
+faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 video_capture = cv2.VideoCapture(0)
 
-while True:
+face = False 
 
+while True:
     # Capture frame-by-frame
     ret, frame = video_capture.read()
 
@@ -22,6 +23,22 @@ while True:
     # Draw a rectangle around the faces
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+    # Display helping text and boolean attribute 
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    org = (50, 50)  
+    fontScale = 2
+    color = (0, 1, 0)  
+    thickness = 2
+    a = "True"
+    b = "False"
+
+    if (x) in faces: 
+        cv2.putText(frame, a, org, font, 
+                    fontScale, color, thickness, cv2.LINE_AA)
+    else: 
+        cv2.putText(frame, b, org, font, 
+                    fontScale, color, thickness, cv2.LINE_AA)
 
     # Display the resulting frame
     cv2.imshow('Video', frame)
