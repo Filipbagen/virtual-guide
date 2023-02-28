@@ -1,11 +1,12 @@
 import cv2
 import sys
 
-faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') #Instead of whole library, the one thats used is referenced directly. 
 
 video_capture = cv2.VideoCapture(0)
 
 while True:
+
     # Capture frame-by-frame
     ret, frame = video_capture.read()
 
@@ -16,7 +17,6 @@ while True:
         scaleFactor=1.1,
         minNeighbors=5,
         minSize=(30, 30),
-       # flags=cv2.cv.CV_HAAR_SCALE_IMAGE
     )
 
     # Draw a rectangle around the faces
