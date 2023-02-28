@@ -2,4 +2,4 @@
 
 
 Face tracking: 
-Download opencv-python för hela package, ska fungera utan att ladda ner något alls
+Download opencv-python
