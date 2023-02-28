@@ -5,18 +5,25 @@ faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 video_capture = cv2.VideoCapture(0)
 
-face = False # Boolean, face in screen or not 
+ # Boolean for face in screen or not 
+face = False
 
+# Face tracking values 
 faceCoordinatesX = []
 faceCoordinatesY = []
 faceCoordinatesW = []
 faceCoordinatesH = []
+
+# Potential rezise of the screen, if needed, uncomment line 25.
+#scaling_factor = 0.5
 
 while True:
     # Capture frame-by-frame
     ret, frame = video_capture.read()
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    
+    #frame = cv2.resize(frame, None, fx=scaling_factor, fy=scaling_factor, interpolation=cv2.INTER_AREA)
 
     faces = faceCascade.detectMultiScale(
         gray,
@@ -59,3 +66,4 @@ while True:
 
 # When everything is done, release the capture
 video_capture.release()
+cv2.destroyAllWindows()
