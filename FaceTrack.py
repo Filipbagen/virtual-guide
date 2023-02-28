@@ -5,7 +5,12 @@ faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 video_capture = cv2.VideoCapture(0)
 
-face = False 
+face = False # Boolean, face in screen or not 
+
+faceCoordinatesX = []
+faceCoordinatesY = []
+faceCoordinatesW = []
+faceCoordinatesH = []
 
 while True:
     # Capture frame-by-frame
@@ -23,22 +28,28 @@ while True:
     # Draw a rectangle around the faces
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+        faceCoordinatesX.append(x) # Save face tracking values
+        faceCoordinatesY.append(y)
+        faceCoordinatesW.append(w)
+        faceCoordinatesH.append(h)
 
     # Display helping text and boolean attribute 
     font = cv2.FONT_HERSHEY_SIMPLEX
     org = (50, 50)  
     fontScale = 2
-    color = (0, 1, 0)  
+    colorTrue = (0, 255, 0)  
+    colorFalse = (0,0,255)
     thickness = 2
     a = "True"
     b = "False"
 
+    # Check if face is in frame and display text accordingly
     if (x) in faces: 
         cv2.putText(frame, a, org, font, 
-                    fontScale, color, thickness, cv2.LINE_AA)
+                    fontScale, colorTrue, thickness, cv2.LINE_AA)
     else: 
         cv2.putText(frame, b, org, font, 
-                    fontScale, color, thickness, cv2.LINE_AA)
+                    fontScale, colorFalse, thickness, cv2.LINE_AA)
 
     # Display the resulting frame
     cv2.imshow('Video', frame)
@@ -48,4 +59,3 @@ while True:
 
 # When everything is done, release the capture
 video_capture.release()
-cv2.destroyAllWindows()
