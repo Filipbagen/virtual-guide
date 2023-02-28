@@ -1,1 +1,5 @@
-# virtual-guide
+# virtual-guide 
+
+
+Face tracking: 
+- Download opencv-python
