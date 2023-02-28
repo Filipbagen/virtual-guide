@@ -1,5 +1,4 @@
 import cv2
-import sys
 
 faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
@@ -39,6 +38,7 @@ while True:
         faceCoordinatesY.append(y)
         faceCoordinatesW.append(w)
         faceCoordinatesH.append(h)
+        print("True")
 
     # Display helping text and boolean attribute 
     font = cv2.FONT_HERSHEY_SIMPLEX
@@ -51,7 +51,7 @@ while True:
     b = "False"
 
     # Check if face is in frame and display text accordingly
-    if (x) in faces: 
+    if x in faces != "":
         cv2.putText(frame, a, org, font, 
                     fontScale, colorTrue, thickness, cv2.LINE_AA)
     else: 
