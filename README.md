@@ -1,6 +1,6 @@
 # virtual-guide Image analysis
 
-Face tracking: 
-
-    Assets: 
-        Download opencv-python
+``` bash
+# Install dependencies (only the first time)
+Download opencv-python
+```
