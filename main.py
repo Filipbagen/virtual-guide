@@ -35,7 +35,7 @@ def open_camera():
         # faceCoordinatesY.append(y)
         # faceCoordinatesW.append(w) # STRL 
         # faceCoordinatesH.append(h)
-        print(w)
+        # print(w)
     
             
     captured_image = Image.fromarray(opencv_image)
